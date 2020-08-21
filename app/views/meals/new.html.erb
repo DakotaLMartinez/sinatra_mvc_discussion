@@ -1,1 +1,20 @@
-<h1>Insert the form to create a new instance of your model.</h1>
+<h1>New Meal</h1>
+<form method="post" action="/meals">
+  <p>
+    <div><label for="name">Name</label></div>
+    <input type="text" id="name" name="name" />
+  </p>
+  <p>
+    <div><label for="price">Price</label></div>
+    <input type="text" id="price" name="price" />
+  </p>
+  <p>
+    <div><label for="spicyness">Spicyness</label></div>
+    <input type="text" id="spicyness" name="spicyness" />
+  </p>
+  <p>
+    <div><label for="short_description">Short Description</label></div>
+    <textarea rows="8" cols="40" id="short_description" name="short_description"></textarea>
+  </p>
+  <input type="submit" value="Create Meal" />
+</form>

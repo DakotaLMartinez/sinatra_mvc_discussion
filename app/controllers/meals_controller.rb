@@ -14,26 +14,41 @@ class MealsController < ApplicationController
 
   # POST: /meals
   post "/meals" do
-    redirect "/meals"
+    # binding.pry
+    meal = Meal.create(meal_params)
+    redirect "/meals/#{meal.id}"
   end
 
   # GET: /meals/5
   get "/meals/:id" do
+    @meal = Meal.find(params[:id])
     erb :"/meals/show.html"
   end
 
   # GET: /meals/5/edit
   get "/meals/:id/edit" do
+    @meal = Meal.find(params[:id])
     erb :"/meals/edit.html"
   end
 
   # PATCH: /meals/5
   patch "/meals/:id" do
-    redirect "/meals/:id"
+    @meal = Meal.find(params[:id])
+    @meal.update(meal_params)
+    redirect "/meals/#{@meal.id}"
   end
 
-  # DELETE: /meals/5/delete
-  delete "/meals/:id/delete" do
+  # DELETE: /meals/5
+  delete "/meals/:id" do
+    @meal = Meal.find(params[:id])
+    @meal.destroy
     redirect "/meals"
+  end
+
+  private 
+
+  def meal_params
+    allowed = ["name", "price", "spicyness", "short_description"]
+    params.select{|k| allowed.include?(k)}
   end
 end

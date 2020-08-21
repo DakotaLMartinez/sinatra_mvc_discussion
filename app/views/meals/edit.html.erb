@@ -1,1 +1,21 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<h1>Edit Meal</h1>
+<form method="post" action="/meals/<%= @meal.id %>">
+  <input type="hidden" value="patch" name="_method">
+  <p>
+    <div><label for="name">Name</label></div>
+    <input type="text" id="name" name="name" value="<%= @meal.name %>" />
+  </p>
+  <p>
+    <div><label for="price">Price</label></div>
+    <input type="text" id="price" name="price" value="<%= @meal.price %>" />
+  </p>
+  <p>
+    <div><label for="spicyness">Spicyness</label></div>
+    <input type="text" id="spicyness" name="spicyness" value="<%= @meal.spicyness %>"/>
+  </p>
+  <p>
+    <div><label for="short_description">Short Description</label></div>
+    <textarea rows="8" cols="40" id="short_description" name="short_description"><%= @meal.short_description %></textarea>
+  </p>
+  <input type="submit" value="Update Meal" />
+</form>

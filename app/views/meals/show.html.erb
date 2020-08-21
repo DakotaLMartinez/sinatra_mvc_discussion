@@ -1,1 +1,6 @@
-<h1>This is the show page for an individual instance of your model.</h1>
+<h1><%= @meal.name %> - <%= @meal.price %></h1>
+<p>Spicyness: <%= @meal.spicyness %></p>
+<p><%= @meal.short_description %></p>
+<a href="/meals/<%= @meal.id %>/edit"><input type="button" value="Edit" /></a>
+<form method="post" action="/meals/<%= @meal.id %>">
+<input type="hidden" value="delete" name="_method"><input type="submit" value="Delete" /></form>
